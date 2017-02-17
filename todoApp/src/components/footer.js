@@ -45,12 +45,15 @@
 // }
 import React, { Component, PropTypes } from 'react'
 export default class Footer extends Component{
+    //该函数其实就是如果有内容就返回超链接，没内容就返回一个文本
     renderFilter(filter,name){
-        if(filter===this.props.filter){
+        if(filter===this.props.filter)
+        {
             return name;
         }
         return (
-            <a href="#"
+            <a
+                href="#"
                 onClick={(e)=>{
                     e.preventDefault();
                     this.props.onFilterChange(filter)
@@ -65,11 +68,12 @@ export default class Footer extends Component{
             <p>
                 Show:
                 {' '}
-                {this.renderFilter('SHOW_ALL','ALL')}
+                {this.renderFilter('SHOW_ALL','All')}
                 {', '}
                 {this.renderFilter('SHOW_COMPLETED','Completed')}
                 {', '}
                 {this.renderFilter('SHOW_ACTIVE','Active')}
+                {'.'}
             </p>
         )
     }

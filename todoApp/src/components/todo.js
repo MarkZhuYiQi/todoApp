@@ -2,7 +2,7 @@
  * Created by SZL4ZSY on 2/16/2017.
  */
 // import React, { Component, PropTypes } from 'react'
-// //这是Todo的每一条数据显示的
+//
 // export default class Todo extends Component {
 //     render() {
 //         return (
@@ -17,21 +17,21 @@
 //         )
 //     }
 // }
-// //Todo必备属性，onClick函数，text字符串，completed布尔型
+//
 // Todo.propTypes = {
 //     onClick: PropTypes.func.isRequired,
 //     text: PropTypes.string.isRequired,
 //     completed: PropTypes.bool.isRequired
 // }
 
-import React, { Component,PropTypes } from 'react'
+import React, { Component, PropTypes } from 'react'
 export default class Todo extends Component{
     render(){
         return (
             <li
-                onClick={this.props.onClick}
+                onClick={this.prop.onClick}
                 style={{
-                    textDecoration:this.props.completed?'line-through':'none',
+                    textDecoration: this.props.completed?'line-thorugh':'none',
                     cursor:this.props.completed?'default':'pointer'
                 }}
             >
@@ -42,6 +42,6 @@ export default class Todo extends Component{
 }
 Todo.propTypes={
     onClick:PropTypes.func.isRequired,
-    text:PropTypes.string.isRequired,
-    completed:PropTypes.bool.isRequired
-}
+    completed:PropTypes.bool.isRequired,
+    text:PropTypes.string.isRequired
+};
