@@ -44,7 +44,7 @@ export default class AddTodo extends Component{
     }
     handleClick(e){
         const node = e.refs.input;
-        const value= node.value.trim();
+        const text= node.value.trim();
         this.props.onAddClick(text)
         node.value=''
     }

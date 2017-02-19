@@ -5,7 +5,7 @@
 import { combineReducers } from 'redux'
 import { ADD_TODO, COMPLETE_TODO, SET_VISIBILITY_FILTER, VisibilityFilters } from '../actions/actions'
 const { SHOW_ALL } = VisibilityFilters
-
+//state.visibilityFilter
 function visibilityFilter(state = SHOW_ALL, action) {
     switch (action.type) {
         case SET_VISIBILITY_FILTER:
@@ -14,7 +14,7 @@ function visibilityFilter(state = SHOW_ALL, action) {
             return state
     }
 }
-
+//state.todos
 function todos(state = [], action) {
     switch (action.type) {
         case ADD_TODO:
@@ -26,18 +26,26 @@ function todos(state = [], action) {
                 }
             ]
         case COMPLETE_TODO:
-            return [
-                ...state.slice(0, action.index),
-                Object.assign({}, state[action.index], {
-                    completed: true
-                }),
-                ...state.slice(action.index + 1)
-            ]
+            // return [
+            //     ...state.slice(0, action.index),
+            //     Object.assign({}, state[action.index], {
+            //         completed: true
+            //     }),
+            //     ...state.slice(action.index + 1)
+            // ]
+            return state.map((todo,index)=>{
+                if(index==action.index){
+                    return Object.assign({},todo,{
+                        completed:!todo.completed
+                    })
+                }
+                return todo;
+            })
         default:
             return state
     }
 }
-
+//组合reducers
 const todoApp = combineReducers({
     visibilityFilter,
     todos

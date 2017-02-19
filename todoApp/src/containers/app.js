@@ -78,6 +78,7 @@ class App extends Component{
                     onAddClick={text=>dispatch(addTodo(text))}
                 />
                 <TodoList
+                    todos={visibleTodos}
                     onTodoClick={index=>dispatch(completeTodo(index))}
                 />
                 <Footer
@@ -99,7 +100,7 @@ App.propTypes={
         'SHOW_ACTIVE'
     ]).isRequired
 }
-function selectTodo( todo,filter){
+function selectTodo( todos,filter){
     switch (filter){
         case VisibilityFilters.SHOW_ALL:
             return todos
@@ -115,4 +116,7 @@ function select (state){
         visibilityFilter:state.visibilityFilter
     }
 }
+//connect方法：第一个括号传入2个参数->
+//第一个是输入逻辑，state对象如何转换成UI组件参数，mapStateToProps,其实就是把state中的东西作为props放到react组件中去
+//第二个是输出逻辑，用户发出的动作如何变为action对象，从ui组件传出去:mapDispatchToProps，其实就是将action作为prop放到react组件中去
 export default connect(select)(App);

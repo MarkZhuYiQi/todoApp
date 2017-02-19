@@ -4,7 +4,7 @@
 import React,{Component,PropTypes} from 'react';
 export default class Test extends Component{
     IncrementIfOdd=()=>{
-        if(this.props.value%2 == 1)
+        if(this.props.value % 2 === 1)
         {
             this.props.Increment()
         }
@@ -16,7 +16,9 @@ export default class Test extends Component{
         return (
             <div>
                 <p>
-                    Clicked: {this.props.value}times
+                    Clicked: {this.props.value}
+                    {' '}
+                    times
                     {' '}
                     <button onClick={this.props.Increment}>
                         +
