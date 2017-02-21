@@ -7,7 +7,9 @@ import Footer from '../components/footer';
 import TodoList from '../components/todoList';
 import {addTodo,completeTodo,setVisibilityFilter,VisibilityFilters} from '../actions/actions'
 import {connect} from 'react-redux'
-//footer有一个函数renderFilter，里面的this.props.filter就是这里的filter，
+//footer有一个函数renderFilter，里面的this.props.filter就是这里的filter,filter的值取自state中的visibilityFilter
+//footer中的onFilterChange函数也定义在footer，他的参数就是filter，写在了footer里
+//visibilityFilter,visibleTodos这两个参数是通过connect传递进来的
 class App extends Component{
     render(){
         const {dispatch,visibilityFilter,visibleTodos}=this.props;
